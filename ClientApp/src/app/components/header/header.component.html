@@ -1,0 +1,78 @@
+
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Epic To-Do-List</a>
+    <form class="form-inline">
+      <!-- <input class="form-control mr-sm-2" type="Username" placeholder="Search" aria-label="Username">
+      <input class="form-control mr-sm-2" type="Password" placeholder="Search" aria-label="Password"> -->
+      <div class="dropdown">
+        <button class="dropbtn">Settings</button>
+        <div class="dropdown-content">
+          <a href="#" (click)="open(section)">Add Section</a>
+          <a href="#" (click)="open(task)">Add Task</a>
+        </div>
+      </div>
+      <form *ngIf="userLoggedIn" class="example-form">
+        <mat-form-field class="logging-in-details">
+          <mat-label>Username</mat-label>
+          <input matInput placeholder="" value="">
+        </mat-form-field>
+        <mat-form-field class="">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="" value="">
+          </mat-form-field>
+        </form>
+      <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Register</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button> -->
+    </form>
+  </nav>
+
+  <ng-template #task let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Add A Task</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <mat-form-field class="full-width">
+        <mat-label>New Task</mat-label>
+        <textarea matInput placeholder="Ex. I really need to..."></textarea>
+      </mat-form-field> 
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Choose a section</mat-label>
+        <select matNativeControl [disabled]="disableSelect.value">
+          <option value="None" selected>None</option>
+          <option value="volvo">Work</option>
+          <option value="saab">Leisure</option>
+          <option value="mercedes">School</option>
+          <option value="audi">Gf</option>
+        </select>
+      </mat-form-field>
+   
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
+    </div>
+  </ng-template>
+
+
+  <ng-template #section let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Add A Section</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <mat-form-field class="full-width">
+        <mat-label>New Section</mat-label>
+        <textarea matInput placeholder="Ex. I really need to..."></textarea>
+      </mat-form-field>  
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
+    </div>
+  </ng-template>
+  
+
+  

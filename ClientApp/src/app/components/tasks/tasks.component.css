@@ -1,0 +1,17 @@
+.whole-section {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* make a container that is the section */
+.tasks-row {
+  margin-left: 35%;
+  text-align: left;
+}
+
+
+input[type="radio"], input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+  margin-right: 15px
+}

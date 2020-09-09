@@ -7,6 +7,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using toDoListProj.Models;
+using Microsoft.AspNetCore.Http;
+using toDoListProj.Data;
+
 
 
 namespace toDoListProj
@@ -23,8 +26,15 @@ namespace toDoListProj
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<TodoContext>(opt =>
-            opt.UseInMemoryDatabase("TodoList"));
+            //Uses in memory for storage
+            //services.AddDbContext<TodoContext>(opt =>
+            //opt.UseInMemoryDatabase("TodoList"));
+
+
+            services.AddDbContext<TodoContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
